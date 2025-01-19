@@ -446,27 +446,27 @@
       // Personalized instructions for minifigure hunt
       const studentLocations = {
         //under a chair
-        "Rouena": "Luke 14:8-10",
+        "rouena": "Luke 14:8-10",
         //by the piano
-        "Ellen": "Psalm 150:4",
+        "ellen": "Psalm 150:4",
         //under an eraser by the chalkboard
-        "Joel": "Habakkuk 2:2",
+        "joel": "Habakkuk 2:2",
         //clock
-        "Thomas": "Ecclesiastes 3:1",
+        "thomas": "Ecclesiastes 3:1",
         //doorknob
-        "Enna": "Revelation 3:20",
+        "enna": "Revelation 3:20",
         //window
-        "Ruby": "Daniel 6:10",
+        "ruby": "Daniel 6:10",
         //bookshelf
-        "Nathan": "2 Timothy 4:13",
+        "nathan": "2 Timothy 4:13",
         //table
-        "Trevor": "Psalm 23:5",
+        "trevor": "Psalm 23:5",
         //light switch
-        "Jacob": "Matthew 5:15",
+        "jacob": "Matthew 5:15",
         //Statue
-        "Meili": "Exodus 20:4",
+        "meili": "Exodus 20:4",
         //Ceiling
-        "Leah": "Psalm 19:1",
+        "leah": "Psalm 19:1",
       };
 
       const backupLocations = [
@@ -486,7 +486,7 @@
         );
 
         // Check if this student has a specific location
-        if (studentLocations[name]) {
+        if (studentLocations[name.toLowerCase()]) {
           instructions.innerHTML = `<p>Hey ${name}! There's something in here for you to find. Do research by reading ${studentLocations[name]}. This will give you a clue of where to search. Once you've found it, return to your seat and click "Found it!"</p>`;
         } else {
           // If no specific location, use a random backup location
