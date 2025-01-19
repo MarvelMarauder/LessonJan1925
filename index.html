@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Revelation & The First Vision</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", Arial, sans-serif;
+        background: linear-gradient(to bottom, #e8f5e9, #ffffff);
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .page {
+        width: 100%;
+        min-height: 100vh;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        box-sizing: border-box;
+        animation: fadeIn 0.5s ease-in-out;
+      }
+      .active {
+        display: flex;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      h1,
+      h2,
+      h3 {
+        text-align: center;
+        color: #2e7d32;
+      }
+      h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+      }
+      h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+      }
+      h3 {
+        font-size: 1.5em;
+      }
+      .navigation-button {
+        padding: 15px 40px;
+        font-size: 1.2em;
+        margin: 20px;
+        border: none;
+        border-radius: 25px;
+        background: linear-gradient(to right, #66bb6a, #43a047);
+        color: white;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      .navigation-button-found {
+        padding: 15px 40px;
+        font-size: 1.2em;
+        margin: 20px;
+        border: none;
+        border-radius: 25px;
+        background: linear-gradient(to right, #66bb6a, #43a047);
+        color: white;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        display: none;
+      }
+      .navigation-button:hover, .nagivation-button-found {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      }
+      .content-container {
+        max-width: 800px;
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      /* Remove the old .image-placeholder styles and replace with: */
+.lesson-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Additional mobile optimization for images */
+@media (max-width: 768px) {
+    .lesson-image {
+        max-width: 100%;
+        margin: 15px auto;
+    }
+}
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 15px;
+        margin: 20px 0;
+      }
+      .grid-item {
+        padding: 15px;
+        text-align: center;
+        background: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.2s;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .grid-item:hover {
+        background: #f1f8e9;
+        transform: scale(1.05);
+      }
+      .grid-item.selected {
+        background: #c8e6c9;
+      }
+      .question {
+        margin: 20px 0;
+        padding: 15px;
+        background: #f9fbe7;
+        border-left: 5px solid #8bc34a;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      input[type="text"] {
+        padding: 12px 15px;
+        margin: 10px 5px 0;
+        width: 100%;
+        max-width: 300px;
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .testimony-page {
+        background: #2e7d32;
+        color: white;
+        transition: background 2s, color 2s;
+      }
+      .testimony-page.revealed {
+        background: white;
+        color: black;
+      }
+      #finalImage {
+        font-size: 1.5em;
+        color: #666;
+      }
+      /* Mobile-specific adjustments */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 1.8em;
+          padding: 0 15px;
+          margin-top: 20px;
+        }
+
+        h2 {
+          font-size: 1.5em;
+        }
+
+        h3 {
+          font-size: 1.2em;
+        }
+
+        .content-container {
+          padding: 15px;
+          margin: 10px;
+        }
+
+        .navigation-button, .nagivation-button-found {
+          padding: 12px 30px;
+          font-size: 1.1em;
+          width: 80%;
+          max-width: 300px;
+          margin: 15px auto;
+        }
+
+        .image-placeholder {
+          height: 200px;
+          margin: 15px 0;
+        }
+
+        .grid-container {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+          padding: 10px;
+        }
+
+        .grid-item {
+          padding: 12px;
+          font-size: 0.9em;
+          min-height: 44px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .question {
+          margin: 15px 0;
+          padding: 12px;
+        }
+
+        input[type="text"] {
+          padding: 10px;
+          font-size: 16px; /* Prevents iOS zoom on focus */
+          width: 90%;
+        }
+      }
+
+      /* Touch device optimizations */
+      @media (hover: none) {
+        .navigation-button:hover, .nagivation-button-found:hover {
+          transform: none;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .grid-item:hover {
+          transform: none;
+        }
+
+        .navigation-button:active {
+          transform: translateY(2px);
+        }
+
+        .grid-item:active {
+          transform: scale(0.98);
+        }
+      }
+
+      /* Prevent text selection on interactive elements */
+      .navigation-button, .nagivation-button-found,
+      .grid-item {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+      }
+
+      /* Fix for iOS momentum scrolling */
+      .page {
+        -webkit-overflow-scrolling: touch;
+        overflow-y: auto;
+      }
+
+      /* Ensure buttons are easily tappable */
+      button,
+      .grid-item {
+        min-height: 44px;
+        min-width: 44px;
+      }
+
+      /* Improve touch feedback */
+      .grid-item.selected {
+        background: #c8e6c9;
+        animation: selectPulse 0.3s ease-out;
+      }
+
+      @keyframes selectPulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(0.95);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      /* Safe area insets for modern iOS devices */
+      @supports (padding: max(0px)) {
+        .page {
+          padding-left: max(20px, env(safe-area-inset-left));
+          padding-right: max(20px, env(safe-area-inset-right));
+          padding-bottom: max(20px, env(safe-area-inset-bottom));
+        }
+      }
+
+      /* Fix for mobile keyboard adjustments */
+      .input-container {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Title Page -->
+    <div class="page title-page active" id="titlePage">
+      <h1>Personal Revelation & The First Vision</h1>
+      <img src="firstVision.webp" alt="">
+      <button class="navigation-button" onclick="showPage('storyPage')">
+        Start
+      </button>
+    </div>
+
+    <!-- Story Page -->
+    <div class="page" id="storyPage">
+      <div class="content-container">
+        <h2>Joseph Smith's First Vision</h2>
+        <img src="godAndJesusChrist.jpg" alt="" style="width: 100%;">
+        <p>
+          In the spring of 1820, Joseph Smith went to a grove of trees near his
+          home to pray...
+          What happened next?
+        </p>
+
+        <div class="question">
+          <h3>Reflection Questions:</h3>
+          <p>
+            1. When have you felt confused about a decision, like Joseph Smith
+            did?
+          </p>
+          <p>2. What scripture passages have spoken to you personally?</p>
+          <p>3. How do you usually seek answers to your spiritual questions?</p>
+        </div>
+
+        <button class="navigation-button" onclick="showPage('preparationPage')">
+          Continue to Activity
+        </button>
+      </div>
+    </div>
+
+    <!-- Preparation Activity Page -->
+    <div class="page" id="preparationPage">
+      <div class="content-container">
+        <h2>🔍 Operation: Revelation Preparation! 🔍</h2>
+        <img src="saints_standard_truth_nauvoo.webp" alt="" style="width: 100%;">
+        
+
+        <div class="input-container">
+          <input type="text" id="studentName" placeholder="Enter your name" />
+          <button
+            class="navigation-button"
+            onclick="getPersonalizedInstructions()"
+          >
+            Get Your Mission
+          </button>
+        </div>
+
+        <div id="personalizedInstructions"></div>
+
+        <button
+          class="navigation-button-found"
+          onclick="showFoundInstructions()"
+          id="foundButton"
+        >
+          Found it!
+        </button>
+
+        <div id="foundInstructions" style="display: none">
+          <h3>Great job! Now...</h3>
+          <p>
+            On the board, write a short sentence about a time when you prepared yourself to
+            receive revelation.
+          </p>
+          <button
+            class="navigation-button"
+            onclick="showPage('revelationTypesPage')"
+          >
+            Continue
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Revelation Types Page -->
+<div class="page" id="revelationTypesPage">
+    <div class="content-container">
+      <h2>How Does the Lord Speak to Us?</h2>
+      <p>How many ways can the Lord communicate revelation to us? Once you've clicked the right answers, you can continue.</p>
+  
+      <div class="grid-container">
+        <div class="grid-item" onclick="selectItem(this)">Peaceful feelings</div>
+        <div class="grid-item" onclick="selectItem(this)">Clear thoughts</div>
+        <div class="grid-item" onclick="selectItem(this)">Remembering scripture passages</div>
+        <div class="grid-item" onclick="selectItem(this)">Dreams</div>
+        <div class="grid-item" onclick="selectItem(this)">Burning in the bosom</div>
+        <div class="grid-item" onclick="selectItem(this)">Texts from other people</div>
+        <div class="grid-item" onclick="selectItem(this)">Wonder in nature</div>
+        <div class="grid-item" onclick="selectItem(this)">Music</div>
+        <div class="grid-item" onclick="selectItem(this)">Ideas</div>
+        <div class="grid-item" onclick="selectItem(this)">Curiosity</div>
+        <div class="grid-item" onclick="selectItem(this)">Motivation to study</div>
+        <div class="grid-item" onclick="selectItem(this)">Feelings of comfort</div>
+      </div>
+      <div class="question" id="revelationQuestions" style="display: none;">
+        <h3>Reflection Questions:</h3>
+        <p>
+          1. Did any of these ways of receiving revelation surprise you?
+        </p>
+        <p>2. What is a unique way you have received revelation?</p>
+      </div>
+      <button class="navigation-button" onclick="showPage('testimonyPage')" id="continueButton" style="display: none;">
+        Continue
+      </button>
+    </div>
+  </div>
+
+    <!-- Testimony Page -->
+    <div class="page testimony-page" id="testimonyPage">
+      <div class="content-container">
+        <h2>Share Your Testimony</h2>
+        <p style="color: black;">
+          Turn to your neighbor and share your testimony of personal revelation
+          and the First Vision.
+        </p>
+        <button class="navigation-button" onclick="revealFinal()">
+          We're Done
+        </button>
+        <div class="image-placeholder" style="display: none" id="finalImage">
+          <img src="jesus.png" alt="" style="width: 100%;">
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Navigation between pages
+      function showPage(pageId) {
+        document.querySelectorAll(".page").forEach((page) => {
+          page.classList.remove("active");
+        });
+        document.getElementById(pageId).classList.add("active");
+      }
+
+      // Personalized instructions for minifigure hunt
+      const studentLocations = {
+        //under a chair
+        "Rouena": "Luke 14:8-10",
+        //by the piano
+        "Ellen": "Psalm 150:4",
+        //under an eraser by the chalkboard
+        "Joel": "Habakkuk 2:2",
+        //clock
+        "Thomas": "Ecclesiastes 3:1",
+        //doorknob
+        "Enna": "Revelation 3:20",
+        //window
+        "Ruby": "Daniel 6:10",
+        //bookshelf
+        "Nathan": "2 Timothy 4:13",
+        //table
+        "Trevor": "Psalm 23:5",
+        //light switch
+        "Jacob": "Matthew 5:15",
+        //Statue
+        "Meili": "Exodus 20:4",
+        //Ceiling
+        "Leah": "Psalm 19:1",
+      };
+
+      const backupLocations = [
+        //podium
+        "Nehemiah 8:4"
+      ];
+
+      function getPersonalizedInstructions() {
+        const name = document.getElementById("studentName").value.trim();
+        if (name === "") {
+          alert("Please enter your name first!");
+          return;
+        }
+
+        const instructions = document.getElementById(
+          "personalizedInstructions"
+        );
+
+        // Check if this student has a specific location
+        if (studentLocations[name]) {
+          instructions.innerHTML = `<p>Hey ${name}! There's something in here for you to find. Do research by reading ${studentLocations[name]}. This will give you a clue of where to search. Once you've found it, return to your seat and click "Found it!"</p>`;
+        } else {
+          // If no specific location, use a random backup location
+          const randomLocation =
+            backupLocations[Math.floor(Math.random() * backupLocations.length)];
+          instructions.innerHTML = `Hey ${name}! There's something in here for you to find. Do research by reading ${randomLocation}. This will give you a clue of where to search! Once you've found it, return to your seat and click "Found it!"</p>`;
+        }
+        document.getElementById("foundButton").style.display="block";
+      }
+
+      function showFoundInstructions() {
+        document.getElementById("foundInstructions").style.display = "block";
+        document.getElementById("foundButton").style.display = "none";
+      }
+
+      // Track clicked items
+  const gridItems = document.querySelectorAll(".grid-item");
+  const continueButton = document.getElementById("continueButton");
+  const revelationQuestions = document.getElementById("revelationQuestions")
+
+  function selectItem(element) {
+    // Add the selected class if not already added
+    if (!element.classList.contains("selected")) {
+      element.classList.add("selected");
+    }
+
+    // Check if all items are selected
+    const allSelected = Array.from(gridItems).every((item) =>
+      item.classList.contains("selected")
+    );
+
+    // Reveal the continue button if all are selected
+    if (allSelected) {
+      continueButton.style.display = "block";
+      revelationQuestions.style.display = "block";
+    }
+  }
+
+      // Final testimony page reveal
+      function revealFinal() {
+        document.getElementById("testimonyPage").classList.add("revealed");
+        document.getElementById("finalImage").style.display = "flex";
+      }
+    </script>
+  </body>
+</html>
